@@ -16,11 +16,27 @@ async function main () {
 
   console.log(`Deploy contract to ${buYMeCoffeFactory.target}`);
   // console.log(`Deploy contract to `); 
-  console.log(network.config())
+  // console.log(network.config())
   if (network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY) {
+    console.log("waiting for blocks transactions....");
     await buyMeCoffee.deploymentTransaction(6)
     await verify(buYMeCoffeFactory.target, [])
   }
+
+  // interaction with the smart contracts
+  const getCoffeLenght = await buyMeCoffee.getBuyCoffeeLenght();
+  console.log(`The lenght of BuyMeCoffe is ${getCoffeLenght}`);
+
+  const writeBuyCoffe = await buyMeCoffee.buyCoffee(
+    "img",
+    "Bolarinwa",
+    "I'm a lover of tech",
+    "FullStack"
+  )
+  await writeBuyCoffe.wait(1)
+  const updatelength = await buyMeCoffee.getBuyCoffeeLenght();
+  console.log(`The lenght of BuyMeCoffe is ${updatelength}`);
+
 }
 
 // to verify contr
