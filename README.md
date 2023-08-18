@@ -1,13 +1,22 @@
 # Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## Deploying smart contract on sepolia network
 
-Try running some of the following tasks:
+Deploying with hardhat and contract verification configuration
+on Sepolia etherscan network.
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+## To run the project local on your network
+
+***git clone** `git clone [repo link]`
+**To install the node modules**
+
+`yarn add`
+
+**Add this to your env** 
+SEPOLIA_RPC_URL= you can get this on alchemy
+PRIVATE_KEY= Your wallet private key
+ETHERSCAN_API_KEY= get this on your etherscan for verification
+
+**Deploy on the Sepolia network**
+
+`yarn hardhat run scripts/deploy.js --network sepolia`
