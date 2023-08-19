@@ -1,6 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config()
 require("@nomicfoundation/hardhat-verify")
+require("hardhat-gas-reporter")
+require("solidity-coverage")
 
 task("accounts", "Prints the list of accounts", async () => {
   const accounts = await ethers.getSigners();
@@ -36,4 +38,10 @@ module.exports = {
   etherscan: {
     apiKey: ETHERSCAN_API_KEY
   },
+  gasReporter: {
+    enabled: false,
+    outputFile: "gas-report.txt",
+    noColors: true,
+    // currency: 'USD',
+  }
 };

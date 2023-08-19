@@ -20,3 +20,6 @@ ETHERSCAN_API_KEY= get this on your etherscan for verification
 **Deploy on the Sepolia network**
 
 `yarn hardhat run scripts/deploy.js --network sepolia`
+
+## To Run Test
+```yarn hardhat test```
